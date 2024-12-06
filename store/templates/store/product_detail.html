@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ product.name }} - My Shop{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.name }}" onerror="this.onerror=null;this.src='/static/images/default_product.png';">
+    </div>
+    <div class="col-md-6">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <p>Цена: {{ product.price }} грн</p>
+        <p>На складе: {{ product.stock }} шт.</p>
+        <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Додати до кошика</a>
+    </div>
+</div>
+{% endblock %}

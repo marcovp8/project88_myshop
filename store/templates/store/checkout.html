@@ -1,0 +1,12 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Checkout - My Shop{% endblock %}
+
+{% block content %}
+    <h1>Checkout</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Place Order</button>
+    </form>
+{% endblock %}
+

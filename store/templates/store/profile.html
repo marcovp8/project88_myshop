@@ -1,0 +1,21 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Profile - My Shop{% endblock %}
+
+{% block content %}
+<h1>Your Orders</h1>
+<ul>
+    {% for order in orders %}
+        <li>
+            Замовлення №{{ order.id }} від {{ order.created_at }} - Статус: {% if order.is_completed %}Завершено{% else %}В процесі{% endif %}
+            <ul>
+                {% for item in order.orderitem_set.all %}
+                    <li>{{ item.product.name }} (x{{ item.quantity }})</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% empty %}
+        <li>У вас ще немає замовлень.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Замовлення оформлено - My Shop{% endblock %}
+
+{% block content %}
+<h1>Дякуємо за ваше замовлення!</h1>
+<p>Ваше замовлення було успішно оформлене.</p>
+<a href="{% url 'order_history' %}">Переглянути історію замовлень</a>
+{% endblock %}
